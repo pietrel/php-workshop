@@ -43,6 +43,6 @@ then
 fi
 
 echo "Running PHPUnit..."
-docker-compose run --rm php php vendor/bin/phpunit
+composer run test
 
 exit $?

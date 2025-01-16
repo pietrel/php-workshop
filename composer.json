@@ -21,7 +21,7 @@
         "friendsofphp/php-cs-fixer": "^3.68"
     },
     "scripts": {
-        "test": "./vendor/bin/phpunit --no-coverage",
+        "test": "./vendor/bin/phpunit --no-coverage --testdox",
         "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html coverage"
     }
 }
