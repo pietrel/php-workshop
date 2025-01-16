@@ -1,0 +1,27 @@
+{
+    "name": "pietrel/workshop",
+    "autoload": {
+        "psr-4": {
+            "Workshop\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.3",
+        "ext-json": "*",
+        "guzzlehttp/guzzle": "^7.9",
+        "vlucas/phpdotenv": "^5.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10",
+        "friendsofphp/php-cs-fixer": "^3.68"
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit --no-coverage",
+        "test-coverage": "XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-html coverage"
+    }
+}
