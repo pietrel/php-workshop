@@ -16,7 +16,6 @@
         </report>
     </coverage>
     <php>
-        <ini name="error_reporting" value="-1"/>
         <env name="SLACK_URL" value="http://localhost:8081"/>
         <var name="APP_ENV" value="testing"/>
     </php>
