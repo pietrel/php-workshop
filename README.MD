@@ -4,6 +4,7 @@
   - autoload-dev
   - scripts
 - phpunit.xml
+- struktura przykładowego testu
 - composer run test
   - wykonane testy z EnvironmentTest i OperatorTest
   - niewykonane testy z SubjectTest
