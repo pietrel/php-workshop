@@ -6,7 +6,7 @@ use Carbon\Carbon;
 
 trait Assertions
 {
-    public function assertArrayContains($expected, $array)
+    public function assertArrayContains($expected, $array): void
     {
         foreach ($expected as $key => $value) {
             if (is_array($value)) {
@@ -19,7 +19,7 @@ trait Assertions
         }
     }
 
-    public function assertSameDay($expected, $actual, $message = '')
+    public function assertSameDay($expected, $actual, $message = ''): void
     {
         $this->assertEquals(
             Carbon::make($expected)->toDateString(),
@@ -28,7 +28,7 @@ trait Assertions
         );
     }
 
-    public function assertSameDate($expected, $actual, $message = '')
+    public function assertSameDate($expected, $actual, $message = ''): void
     {
         $this->assertEquals(
             Carbon::make($expected)->toDateTimeString(),

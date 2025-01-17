@@ -8,13 +8,13 @@ use Workshop\Actions\Subject\Subject;
 
 class SubjectTest extends BaseTestCase
 {
-    public function testSubjectContract()
+    public function testSubjectContract(): void
     {
         $class = new Subject();
         $this->assertInstanceOf(ActionContract::class, $class);
     }
 
-    public function testSubjectTrait()
+    public function testSubjectTrait(): void
     {
         $traits = class_uses(Subject::class);
         $this->assertContains('Workshop\Actions\Traits\WithAttributes', $traits);
@@ -37,8 +37,7 @@ class SubjectTest extends BaseTestCase
     public function testSubjectExecution($parameter): void
     {
         $subject = new Subject();
-        $subject->attributes($parameter);
-        $result = $subject->execute();
+        $result = $subject->withAttributes($parameter)->execute();
         $this->assertEquals($parameter[1], $result);
     }
 

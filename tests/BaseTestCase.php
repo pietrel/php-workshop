@@ -8,7 +8,7 @@ class BaseTestCase extends TestCase
 {
     use Assertions;
 
-    public function invokeMethod(&$object, $methodName, array $parameters = [])
+    public function invokeMethod(&$object, $methodName, array $parameters = []): mixed
     {
         $reflection = new \ReflectionClass(get_class($object));
         $method = $reflection->getMethod($methodName);

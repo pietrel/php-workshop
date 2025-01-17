@@ -4,5 +4,5 @@ namespace Workshop\Actions;
 
 interface ActionContract
 {
-    public function execute();
+    public function execute(): int;
 }
