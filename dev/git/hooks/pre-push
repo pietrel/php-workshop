@@ -18,7 +18,7 @@ function error_exit
 
 # get list of files for this push
 PROJECT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$(readlink -f -- "$0")")")")")"
-FILES=`git diff --name-status origin/master.. | grep -e '^[AM]\(.*\).php$' | cut -c 3- | tr '\n' ' '`
+FILES=`git diff --name-status origin/main.. | grep -e '^[AM]\(.*\).php$' | cut -c 3- | tr '\n' ' '`
 
 echo "Checking PHP Lint..."
 for FILE in $FILES
@@ -35,7 +35,7 @@ done
 if [ "$FILES" != "" ]
 then
 	echo "Running PHP-CS-Fixer..."
-	docker-compose run --rm php php vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection --config=.php_cs -- $FILES
+	vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection --config=.php_cs -- $FILES
 	if [ $? != 0 ]
 	then
 		error_exit "Fix errors before push."
@@ -43,6 +43,6 @@ then
 fi
 
 echo "Running PHPUnit..."
-composer run test
+vendor/bin/phpunit --no-coverage --testdox
 
 exit $?
