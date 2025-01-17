@@ -12,6 +12,8 @@ class EnvironmentTest extends BaseTestCase
         $this->assertEquals('testing', $GLOBALS['APP_ENV']);
     }
 
+k
+
 
 
 }
