@@ -1,6 +1,6 @@
 <?php
 
-use Tests\BaseTestCase;
+use PHPUnit\Framework\TestCase;
 use Workshop\Services\Operator\Operator;
 
 /**
@@ -10,7 +10,7 @@ use Workshop\Services\Operator\Operator;
  * - sprawdzenie, czy oczekiwane wyniki zostały osiągnięte.
  * W przypadku oczekiwania na wyjątek “Arrange, Expect, Act”
  */
-class OperatorTest extends BaseTestCase
+class OperatorTest extends TestCase
 {
     private Operator|null $operator;
 
