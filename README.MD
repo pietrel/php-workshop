@@ -2,7 +2,7 @@
 
 - composer.json
   - autoload-dev
-  - scripts
+  - scripts (makefile)
 - phpunit.xml
 - struktura przykładowego testu
 - composer run test
