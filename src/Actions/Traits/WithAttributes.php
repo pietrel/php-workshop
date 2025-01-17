@@ -13,7 +13,7 @@ trait WithAttributes
         return $this;
     }
 
-    function arrayHasFields(array $array, array $requiredFields): bool
+    public function arrayHasFields(array $array, array $requiredFields): bool
     {
         foreach ($requiredFields as $field) {
             if (!array_key_exists($field, $array)) {

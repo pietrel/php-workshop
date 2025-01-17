@@ -9,7 +9,7 @@ class Subject
     public function operation(int $parameter): int
     {
         if ($parameter === 0) {
-            throw new \InvalidArgumentException("Invalida argument.");
+            throw new \InvalidArgumentException('Invalida argument.');
         }
 
         $result = $parameter + 1;
@@ -27,7 +27,7 @@ class Subject
         $this->history[] = [
             'operation' => $operation,
             'parameter' => $parameter,
-            'result' => $result,
+            'result'    => $result,
         ];
     }
 }

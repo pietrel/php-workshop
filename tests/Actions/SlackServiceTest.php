@@ -3,9 +3,9 @@
 namespace Tests\Feature\Actions\Slack;
 
 use Tests\BaseTestCase;
+use Workshop\Actions\Slack\Autorenew;
 use Workshop\Services\Slack\Sender;
 use Workshop\Services\Slack\Service;
-use Workshop\Actions\Slack\Autorenew;
 
 class SlackServiceTest extends BaseTestCase
 {
@@ -25,7 +25,7 @@ class SlackServiceTest extends BaseTestCase
         $submitContactAction = new Autorenew();
 
         $validator = $this->invokeMethod($submitContactAction, 'validator', [[
-            'uid' => 1,
+            'uid'    => 1,
             'status' => true,
         ]]);
 

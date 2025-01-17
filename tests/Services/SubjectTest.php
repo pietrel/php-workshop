@@ -80,13 +80,13 @@ class SubjectTest extends BaseTestCase
         $this->assertSame([
             'operation' => 'operation-1',
             'parameter' => 1,
-            'result' => 2,
+            'result'    => 2,
         ], $history[0]);
 
         $this->assertSame([
             'operation' => 'operation-1',
             'parameter' => 2,
-            'result' => 3,
+            'result'    => 3,
         ], $history[1]);
     }
 }

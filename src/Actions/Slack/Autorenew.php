@@ -2,10 +2,10 @@
 
 namespace Workshop\Actions\Slack;
 
-use Workshop\Services\Slack;
-use Workshop\Actions\ActionContract;
 use GuzzleHttp\Exception\GuzzleException;
+use Workshop\Actions\ActionContract;
 use Workshop\Actions\Traits\WithAttributes;
+use Workshop\Services\Slack;
 
 class AutoRenew implements ActionContract
 {
