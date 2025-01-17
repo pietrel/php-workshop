@@ -8,7 +8,6 @@ $finder = Finder::create()
     ->in(__DIR__) // Search in the current directory
     ->exclude('vendor') // Exclude the "vendor" directory
     ->name('*.php') // Only include PHP files
-    ->notName('*.blade.php') // Exclude Blade template files, if any
     ->ignoreDotFiles(true) // Ignore dotfiles
     ->ignoreVCS(true); // Ignore version control system files
 

@@ -20,6 +20,7 @@ function error_exit
 PROJECT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$(readlink -f -- "$0")")")")")"
 FILES=`git diff --name-status origin/main.. | grep -e '^[AM]\(.*\).php$' | cut -c 3- | tr '\n' ' '`
 
+
 echo "Checking PHP Lint..."
 for FILE in $FILES
 do
