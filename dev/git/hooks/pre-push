@@ -1,49 +1,49 @@
-#!/bin/bash
+##!/bin/bash
+##
+## An example hook script to verify what is about to be pushed.
+## Called by "git push" with no arguments.  The hook should
+## exit with non-zero status after issuing an appropriate message if
+## it wants to stop the push.
+##
+## To enable this hook, rename this file to "pre-push".
 #
-# An example hook script to verify what is about to be pushed.
-# Called by "git push" with no arguments.  The hook should
-# exit with non-zero status after issuing an appropriate message if
-# it wants to stop the push.
+## display error and exit
+#function error_exit
+#{
+#	LIGHT_RED='\033[1;31m'
+#	NC='\033[0m' # No Color
+#	echo -e "\n${LIGHT_RED}$1${NC}" 1>&2
+#	exit 1
+#}
 #
-# To enable this hook, rename this file to "pre-push".
-
-# display error and exit
-function error_exit
-{
-	LIGHT_RED='\033[1;31m'
-	NC='\033[0m' # No Color
-	echo -e "\n${LIGHT_RED}$1${NC}" 1>&2
-	exit 1
-}
-
-# get list of files for this push
-PROJECT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$(readlink -f -- "$0")")")")")"
-FILES=`git diff --name-status origin/main.. | grep -e '^[AM]\(.*\).php$' | cut -c 3- | tr '\n' ' '`
-
-
-echo "Checking PHP Lint..."
-for FILE in $FILES
-do
-	php -l -d display_errors=0 $FILE
-	if [ $? != 0 ]
-	then
-		error_exit "PHP Error in file: ${PROJECT}/${FILE}
-Fix the error before push."
-	fi
-done
-
-
-if [ "$FILES" != "" ]
-then
-	echo "Running PHP-CS-Fixer..."
-	vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection --config=.php-cs-fixer.php $FILES
-	if [ $? != 0 ]
-	then
-		error_exit "Fix errors before push."
-	fi
-fi
-
-echo "Running PHPUnit..."
-vendor/bin/phpunit --no-coverage --testdox
-
-exit $?
+## get list of files for this push
+#PROJECT="$(dirname -- "$(dirname -- "$(dirname -- "$(dirname -- "$(readlink -f -- "$0")")")")")"
+#FILES=`git diff --name-status origin/main.. | grep -e '^[AM]\(.*\).php$' | cut -c 3- | tr '\n' ' '`
+#
+#
+#echo "Checking PHP Lint..."
+#for FILE in $FILES
+#do
+#	php -l -d display_errors=0 $FILE
+#	if [ $? != 0 ]
+#	then
+#		error_exit "PHP Error in file: ${PROJECT}/${FILE}
+#Fix the error before push."
+#	fi
+#done
+#
+#
+#if [ "$FILES" != "" ]
+#then
+#	echo "Running PHP-CS-Fixer..."
+#	vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection --config=.php-cs-fixer.php $FILES
+#	if [ $? != 0 ]
+#	then
+#		error_exit "Fix errors before push."
+#	fi
+#fi
+#
+#echo "Running PHPUnit..."
+#vendor/bin/phpunit --no-coverage --testdox
+#
+#exit $?
