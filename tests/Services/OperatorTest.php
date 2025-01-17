@@ -1,7 +1,7 @@
 <?php
 
 use Tests\BaseTestCase;
-use Workshop\Services\Subject\Subject;
+use Workshop\Services\Operator\Operator;
 
 /**
  * Test zazwyczaj opiera się na strukturze „Arrange, Act, Assert”:
@@ -10,9 +10,9 @@ use Workshop\Services\Subject\Subject;
  * - sprawdzenie, czy oczekiwane wyniki zostały osiągnięte.
  * W przypadku oczekiwania na wyjątek “Arrange, Expect, Act”
  */
-class SubjectTest extends BaseTestCase
+class OperatorTest extends BaseTestCase
 {
-    private Subject|null $subject;
+    private Operator|null $operator;
 
     /**
      * Przed każdym testem metoda setUp() jest wywoływana automatycznie.
@@ -20,7 +20,7 @@ class SubjectTest extends BaseTestCase
      */
     protected function setUp(): void
     {
-        $this->subject = new Subject();
+        $this->operator = new Operator();
     }
 
     public static function setUpBeforeClass(): void
@@ -36,7 +36,7 @@ class SubjectTest extends BaseTestCase
      */
     protected function tearDown(): void
     {
-        $this->subject = null;
+        $this->operator = null;
     }
 
     public static function tearDownAfterClass(): void
@@ -56,14 +56,14 @@ class SubjectTest extends BaseTestCase
      */
     public function testOperation($parameter, $result): void
     {
-        $this->assertSame($result, $this->subject->operation($parameter));
+        $this->assertSame($result, $this->operator->operation($parameter));
     }
 
     public function testOperationThrowsException(): void
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('Invalida argument.');
-        $this->subject->operation(0);
+        $this->operator->operation(0);
     }
 
     /**
@@ -72,10 +72,10 @@ class SubjectTest extends BaseTestCase
      */
     public function testHistoryIsLogged(): void
     {
-        $this->subject->operation(1);
-        $this->subject->operation(2);
+        $this->operator->operation(1);
+        $this->operator->operation(2);
 
-        $history = $this->subject->getHistory();
+        $history = $this->operator->getHistory();
         $this->assertCount(2, $history);
         $this->assertSame([
             'operation' => 'operation-1',

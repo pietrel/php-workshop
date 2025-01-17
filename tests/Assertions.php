@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use Carbon\Carbon;
+
 trait Assertions
 {
     public function assertArrayContains($expected, $array)
@@ -9,7 +11,7 @@ trait Assertions
         foreach ($expected as $key => $value) {
             if (is_array($value)) {
                 $this->assertArrayContains($expected[$key], $array[$key]);
-            } elseif (Arr::isAssoc($expected)) {
+            } else if ($this->isAssoc($array)) {
                 $this->assertEquals($expected[$key], $array[$key]);
             } else {
                 $this->assertContains($value, $array);
@@ -22,7 +24,7 @@ trait Assertions
         $this->assertEquals(
             Carbon::make($expected)->toDateString(),
             Carbon::make($actual)->toDateString(),
-            $message
+            $message,
         );
     }
 
@@ -31,7 +33,12 @@ trait Assertions
         $this->assertEquals(
             Carbon::make($expected)->toDateTimeString(),
             Carbon::make($actual)->toDateTimeString(),
-            $message
+            $message,
         );
+    }
+
+    private function isAssoc(array $array): bool
+    {
+        return array_keys($array) !== range(0, count($array) - 1);
     }
 }

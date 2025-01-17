@@ -1,8 +1,8 @@
 <?php
 
-namespace Workshop\Services\Subject;
+namespace Workshop\Services\Operator;
 
-class Subject
+class Operator
 {
     private array $history = [];
 

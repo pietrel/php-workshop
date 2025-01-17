@@ -28,7 +28,6 @@ class AutoRenew implements ActionContract
         }
     }
 
-
     private function validator($attributes): bool
     {
         return $this->arrayHasFields(
