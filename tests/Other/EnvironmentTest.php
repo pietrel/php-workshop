@@ -2,9 +2,9 @@
 
 namespace Tests\Other;
 
-use Tests\BaseTestCase;
+use PHPUnit\Framework\TestCase;
 
-class EnvironmentTest extends BaseTestCase
+class EnvironmentTest extends TestCase
 {
     public function testEnvironment(): void
     {

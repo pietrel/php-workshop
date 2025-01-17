@@ -2,18 +2,24 @@
 
 namespace Tests\Feature\Actions\Slack;
 
-use Tests\BaseTestCase;
+use PHPUnit\Framework\TestCase;
 use Workshop\Actions\ActionContract;
 use Workshop\Actions\Subject\Subject;
 
-class SubjectTest extends BaseTestCase
+class SubjectTest extends TestCase
 {
+    /**
+     * @requires PHP == 6.0
+     */
     public function testSubjectContract(): void
     {
         $class = new Subject();
         $this->assertInstanceOf(ActionContract::class, $class);
     }
 
+    /**
+     * @requires PHP == 6.0
+     */
     public function testSubjectTrait(): void
     {
         $traits = class_uses(Subject::class);
@@ -32,6 +38,7 @@ class SubjectTest extends BaseTestCase
     }
 
     /**
+     * @requires PHP == 6.0
      * @dataProvider parameterProvider
      */
     public function testSubjectExecution($parameter): void
