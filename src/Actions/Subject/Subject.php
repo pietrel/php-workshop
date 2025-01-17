@@ -3,8 +3,8 @@
 namespace Workshop\Actions\Subject;
 
 use Workshop\Actions\ActionContract;
-use Workshop\Services\Operator\Operator;
 use Workshop\Actions\Traits\WithAttributes;
+use Workshop\Services\Operator\Operator;
 
 class Subject implements ActionContract
 {

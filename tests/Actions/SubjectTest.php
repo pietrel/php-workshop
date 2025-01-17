@@ -8,7 +8,6 @@ use Workshop\Actions\Subject\Subject;
 
 class SubjectTest extends BaseTestCase
 {
-
     public function testSubjectContract()
     {
         $class = new Subject();

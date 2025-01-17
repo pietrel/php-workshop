@@ -11,7 +11,7 @@ trait Assertions
         foreach ($expected as $key => $value) {
             if (is_array($value)) {
                 $this->assertArrayContains($expected[$key], $array[$key]);
-            } else if ($this->isAssoc($array)) {
+            } elseif ($this->isAssoc($array)) {
                 $this->assertEquals($expected[$key], $array[$key]);
             } else {
                 $this->assertContains($value, $array);
