@@ -1,4 +1,4 @@
-Elementy do omówienia podczas spotkania:
+# Elementy do omówienia podczas spotkania:
 
 - composer.json
   - autoload-dev
@@ -6,4 +6,5 @@ Elementy do omówienia podczas spotkania:
 - phpunit.xml
 - composer run test
   - wykonane testy z EnvironmentTest i OperatorTest
-  - niewykonane testy z SubjectTest 
+  - niewykonane testy z SubjectTest
+- git hooks 
