@@ -36,7 +36,7 @@ done
 if [ "$FILES" != "" ]
 then
 	echo "Running PHP-CS-Fixer..."
-	vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection -- $FILES
+	vendor/bin/php-cs-fixer fix --dry-run --using-cache=no --path-mode=intersection --config=.php-cs-fixer.php $FILES
 	if [ $? != 0 ]
 	then
 		error_exit "Fix errors before push."
