@@ -23,10 +23,6 @@ class OperatorTest extends TestCase
         $this->operator = new Operator();
     }
 
-    public static function setUpBeforeClass(): void
-    {
-    }
-
     /**
      * Po każdym teście metoda tearDown() jest wywoływana automatycznie.
      * Pozwala to na zwolnienie zasobów, które mogłyby być zajęte przez test.
@@ -39,9 +35,6 @@ class OperatorTest extends TestCase
         $this->operator = null;
     }
 
-    public static function tearDownAfterClass(): void
-    {
-    }
 
     public static function parameterProvider(): array
     {
