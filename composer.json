@@ -22,6 +22,11 @@
         "friendsofphp/php-cs-fixer": "^3.68"
     },
     "scripts": {
+        "install-hooks": [
+            "rm -rf .git/hooks",
+            "ln -s ../dev/git/hooks .git/hooks",
+            "chmod +x .git/hooks/pre-push"
+        ],
         "code-check": "./vendor/bin/php-cs-fixer fix --dry-run",
         "code-fix": "./vendor/bin/php-cs-fixer fix",
         "test-watch": [
