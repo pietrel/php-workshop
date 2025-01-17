@@ -1,5 +1,8 @@
 <?php
 
+namespace Tests\Services;
+
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use Workshop\Services\Operator\Operator;
 
