@@ -5,7 +5,7 @@ namespace Tests;
 class Stub
 {
     protected $params;
-    
+
     public function __construct(array $params)
     {
         $this->params = array_merge([
