@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Actions\Slack;
+namespace Tests\Actions;
 
 use PHPUnit\Framework\TestCase;
 use Workshop\Actions\ActionContract;
